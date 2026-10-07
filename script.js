@@ -58,3 +58,8 @@ document.querySelector('#size').addEventListener('change', event => {
   document.querySelector('#shake-price').textContent = currency.format(sizes[event.target.value]);
   document.querySelector('#shake-size').textContent = 'copo de ' + event.target.value + ' ml';
 });
+
+const flavorOne = document.querySelector('#flavor-one');
+const flavorTwo = document.querySelector('#flavor-two');
+function updateFlavors() { document.querySelector('#flavor-summary').textContent = 'Seu cascão: ' + flavorOne.value + ' + ' + flavorTwo.value; }
+[flavorOne, flavorTwo].forEach(select => select.addEventListener('change', updateFlavors));

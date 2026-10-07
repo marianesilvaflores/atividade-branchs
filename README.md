@@ -15,3 +15,6 @@ A busca ignora acentos e maiúsculas e funciona junto com as categorias. O conta
 
 
 O milk-shake oferece 300 ml (R$ 14), 400 ml (R$ 18) e 500 ml (R$ 22). O preço é atualizado ao escolher o tamanho.
+
+
+Escolha os sabores de cada uma das duas bolas do cascão. É possível repetir sabores; o resumo muda imediatamente e o preço permanece R$ 12,00.
