@@ -63,3 +63,18 @@ const flavorOne = document.querySelector('#flavor-one');
 const flavorTwo = document.querySelector('#flavor-two');
 function updateFlavors() { document.querySelector('#flavor-summary').textContent = 'Seu cascão: ' + flavorOne.value + ' + ' + flavorTwo.value; }
 [flavorOne, flavorTwo].forEach(select => select.addEventListener('change', updateFlavors));
+
+const favorites = new Set();
+function renderFavorites() {
+  document.querySelectorAll('[data-favorite]').forEach(button => {
+    const active = favorites.has(button.dataset.favorite);
+    button.setAttribute('aria-pressed', String(active));
+    button.textContent = active ? '♥' : '♡';
+  });
+  updateProducts();
+}
+document.querySelectorAll('[data-favorite]').forEach(button => button.addEventListener('click', () => {
+  const id = button.dataset.favorite;
+  favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+  renderFavorites();
+}));
