@@ -98,4 +98,9 @@ function setTheme(dark) {
   themeButton.textContent = dark ? 'Tema claro' : 'Tema escuro';
   document.querySelector('meta[name="theme-color"]').content = dark ? '#231c22' : '#fff9f2';
 }
-themeButton.addEventListener('click', () => setTheme(document.documentElement.dataset.theme !== 'dark'));
+themeButton.addEventListener('click', () => {
+  const dark = document.documentElement.dataset.theme !== 'dark';
+  setTheme(dark);
+  try { localStorage.setItem('doce-theme', dark ? 'dark' : 'light'); } catch {}
+});
+try { setTheme(localStorage.getItem('doce-theme') === 'dark'); } catch { setTheme(false); }
