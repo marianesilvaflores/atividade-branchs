@@ -52,3 +52,9 @@ document.querySelector('#search').addEventListener('input', event => {
   menuState.search = normalize(event.target.value);
   updateProducts();
 });
+
+const sizes = { 300: 14, 400: 18, 500: 22 };
+document.querySelector('#size').addEventListener('change', event => {
+  document.querySelector('#shake-price').textContent = currency.format(sizes[event.target.value]);
+  document.querySelector('#shake-size').textContent = 'copo de ' + event.target.value + ' ml';
+});
