@@ -103,3 +103,5 @@ output { font-family:'Fraunces',serif; font-size:28px; color:var(--pink); }
 .choice { display:block; font-size:12px; font-weight:600; margin:18px 0; }
 select { display:block; width:100%; margin-top:8px; border:1px solid var(--line); border-radius:8px; background:#fffcf8; color:var(--chocolate); padding:12px 8px; font:inherit; min-height:44px; }
 select:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
+
+.product-content>.selection-summary { min-height:0; font-size:12px; margin:12px 0 18px; color:var(--pink); }
