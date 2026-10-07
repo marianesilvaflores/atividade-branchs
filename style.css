@@ -88,3 +88,10 @@ output { font-family:'Fraunces',serif; font-size:28px; color:var(--pink); }
   footer { flex-direction:column; text-align:center; gap:12px; }
   footer p { margin:0; }
 }
+
+[hidden] { display:none !important; }
+.menu-tools { display:flex; flex-wrap:wrap; align-items:end; gap:18px; margin-bottom:16px; }
+.filters { display:flex; flex-wrap:wrap; gap:8px; }
+.filters button { background:transparent; color:var(--chocolate); border:1px solid var(--line); border-radius:24px; padding:11px 17px; }
+.filters button[aria-pressed="true"] { background:var(--pink); color:white; border-color:var(--pink); }
+#menu-status { margin:14px 0; }

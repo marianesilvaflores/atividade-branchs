@@ -27,3 +27,21 @@ weightInput.addEventListener('input', () => {
   errorOutput.textContent = '';
   weightInput.removeAttribute('aria-invalid');
 });
+
+const products = [...document.querySelectorAll('[data-product]')];
+const menuState = { category: 'todos', search: '', favoritesOnly: false };
+function updateProducts() {
+  let count = 0;
+  for (const card of products) {
+    const matches = menuState.category === 'todos' || card.dataset.product === menuState.category;
+    card.hidden = !matches;
+    if (matches) count++;
+  }
+  const status = document.querySelector('#menu-status');
+  if (status) status.textContent = count ? count + (count === 1 ? ' opção encontrada' : ' opções encontradas') : 'Nenhuma opção encontrada. Ajuste os filtros.';
+}
+document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+  menuState.category = button.dataset.filter;
+  document.querySelectorAll('[data-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  updateProducts();
+}));
