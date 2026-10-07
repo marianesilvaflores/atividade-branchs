@@ -34,7 +34,7 @@ function updateProducts() {
   let count = 0;
   for (const card of products) {
     const matchesCategory = menuState.category === 'todos' || card.dataset.product === menuState.category;
-    const matches = matchesCategory && normalize(card.querySelector('h3').textContent).includes(menuState.search);
+    const matches = (!menuState.favoritesOnly || favorites.has(card.dataset.product)) && matchesCategory && normalize(card.querySelector('h3').textContent).includes(menuState.search);
     card.hidden = !matches;
     if (matches) count++;
   }
@@ -63,3 +63,30 @@ const flavorOne = document.querySelector('#flavor-one');
 const flavorTwo = document.querySelector('#flavor-two');
 function updateFlavors() { document.querySelector('#flavor-summary').textContent = 'Seu cascão: ' + flavorOne.value + ' + ' + flavorTwo.value; }
 [flavorOne, flavorTwo].forEach(select => select.addEventListener('change', updateFlavors));
+
+const favorites = new Set();
+function renderFavorites() {
+  document.querySelectorAll('[data-favorite]').forEach(button => {
+    const active = favorites.has(button.dataset.favorite);
+    button.setAttribute('aria-pressed', String(active));
+    button.textContent = active ? '♥' : '♡';
+  });
+  updateProducts();
+}
+document.querySelectorAll('[data-favorite]').forEach(button => button.addEventListener('click', () => {
+  const id = button.dataset.favorite;
+  favorites.has(id) ? favorites.delete(id) : favorites.add(id);
+  try { localStorage.setItem('doce-favorites', JSON.stringify([...favorites])); } catch {}
+  renderFavorites();
+}));
+
+try {
+  const saved = JSON.parse(localStorage.getItem('doce-favorites') || '[]');
+  if (Array.isArray(saved)) saved.filter(id => products.some(card => card.dataset.product === id)).forEach(id => favorites.add(id));
+} catch {}
+document.querySelector('#favorites-only').addEventListener('click', event => {
+  menuState.favoritesOnly = !menuState.favoritesOnly;
+  event.currentTarget.setAttribute('aria-pressed', String(menuState.favoritesOnly));
+  renderFavorites();
+});
+renderFavorites();

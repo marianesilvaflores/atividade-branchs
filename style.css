@@ -105,3 +105,9 @@ select { display:block; width:100%; margin-top:8px; border:1px solid var(--line)
 select:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
 
 .product-content>.selection-summary { min-height:0; font-size:12px; margin:12px 0 18px; color:var(--pink); }
+
+.product { position:relative; }
+.favorite { position:absolute; z-index:1; right:14px; top:14px; width:44px; height:44px; padding:0; border-radius:50%; background:#fff9f2; color:#9b2948; font-size:26px; }
+.favorite:hover { background:#ffe0e8; }
+
+#favorites-only[aria-pressed="true"] { background:var(--pink); color:white; }
