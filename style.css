@@ -111,3 +111,15 @@ select:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
 .favorite:hover { background:#ffe0e8; }
 
 #favorites-only[aria-pressed="true"] { background:var(--pink); color:white; }
+
+:root[data-theme="dark"] { color-scheme:dark; --cream:#231c22; --chocolate:#fff2e8; --pink:#ffa3bf; --muted:#d4bdc7; --line:#634d5b; }
+[data-theme="dark"] .product { background:#30252d; }
+[data-theme="dark"] .calculator { background:#3b2934; border-color:var(--line); }
+[data-theme="dark"] input,[data-theme="dark"] select { background:#231c22; }
+[data-theme="dark"] button { background:#ffa3bf; color:#321e28; }
+[data-theme="dark"] .filters button { background:transparent; color:var(--chocolate); }
+[data-theme="dark"] .filters button[aria-pressed="true"],[data-theme="dark"] #favorites-only[aria-pressed="true"] { background:#ffa3bf; color:#321e28; }
+[data-theme="dark"] .badge { color:#492b29; }
+[data-theme="dark"] .error { color:#ffb8ca; }
+#theme-toggle { flex-shrink:0; padding:12px 16px; }
+@media(min-width:651px) and (max-width:900px) { .header { flex-wrap:wrap; padding-block:24px; } }
