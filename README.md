@@ -9,3 +9,6 @@ Abra index.html no navegador ou use um servidor estático local. Não há depend
 
 ## Organização
 Seis funcionalidades em branches feature/nome-da-funcionalidade, com pelo menos dois commits por branch. Três integrações diretas e três por pull request, todas na master.
+
+
+A busca ignora acentos e maiúsculas e funciona junto com as categorias. O contador avisa quando nenhum produto corresponde aos filtros.

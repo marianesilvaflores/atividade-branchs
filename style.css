@@ -95,3 +95,7 @@ output { font-family:'Fraunces',serif; font-size:28px; color:var(--pink); }
 .filters button { background:transparent; color:var(--chocolate); border:1px solid var(--line); border-radius:24px; padding:11px 17px; }
 .filters button[aria-pressed="true"] { background:var(--pink); color:white; border-color:var(--pink); }
 #menu-status { margin:14px 0; }
+
+.search-label { font-size:12px; font-weight:600; flex:1 1 240px; max-width:360px; }
+.search-label input { margin-top:8px; }
+@media(max-width:650px) { .search-label { max-width:none; flex-basis:100%; } }

@@ -33,7 +33,8 @@ const menuState = { category: 'todos', search: '', favoritesOnly: false };
 function updateProducts() {
   let count = 0;
   for (const card of products) {
-    const matches = menuState.category === 'todos' || card.dataset.product === menuState.category;
+    const matchesCategory = menuState.category === 'todos' || card.dataset.product === menuState.category;
+    const matches = matchesCategory && normalize(card.querySelector('h3').textContent).includes(menuState.search);
     card.hidden = !matches;
     if (matches) count++;
   }
@@ -45,3 +46,9 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
   document.querySelectorAll('[data-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
   updateProducts();
 }));
+
+function normalize(value) { return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim(); }
+document.querySelector('#search').addEventListener('input', event => {
+  menuState.search = normalize(event.target.value);
+  updateProducts();
+});
