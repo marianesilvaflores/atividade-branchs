@@ -12,3 +12,6 @@ Seis funcionalidades em branches feature/nome-da-funcionalidade, com pelo menos 
 
 
 A busca ignora acentos e maiúsculas e funciona junto com as categorias. O contador avisa quando nenhum produto corresponde aos filtros.
+
+
+O milk-shake oferece 300 ml (R$ 14), 400 ml (R$ 18) e 500 ml (R$ 22). O preço é atualizado ao escolher o tamanho.
